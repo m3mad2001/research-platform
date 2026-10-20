@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="Engineering Nexus">
+  <defs>
+    <linearGradient id="c" x1="8" y1="8" x2="46" y2="55" gradientUnits="userSpaceOnUse"><stop stop-color="#76F0FA"/><stop offset="1" stop-color="#35D8ED"/></linearGradient>
+    <linearGradient id="v" x1="22" y1="54" x2="58" y2="10" gradientUnits="userSpaceOnUse"><stop stop-color="#35D8ED"/><stop offset="1" stop-color="#7161ED"/></linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#061726"/>
+  <path d="M7 18h11l6 7m22-7h11l-6 7M7 46h11l6-7m22 7h11l-6-7" stroke="url(#c)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="20" y="20" width="24" height="24" rx="5" stroke="url(#v)" stroke-width="3.5"/>
+  <path d="M25 34h4l2-5 3 8 2-4h3" stroke="#8EDFED" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="7" cy="18" r="3" fill="#35D8ED"/><circle cx="57" cy="18" r="3" fill="#7161ED"/>
+  <circle cx="7" cy="46" r="3" fill="#35D8ED"/><circle cx="57" cy="46" r="3" fill="#7161ED"/>
+</svg>

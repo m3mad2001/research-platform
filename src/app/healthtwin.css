@@ -1,0 +1,99 @@
+/* Engineering Nexus visual system. Existing class names are kept for compatibility. */
+:root {
+  --background: #061726;
+  --foreground: #f5fbff;
+  --research-bg: #061726;
+  --research-panel: rgba(10, 34, 54, .91);
+  --research-panel-strong: rgba(7, 26, 43, .96);
+  --research-border: rgba(53, 216, 237, .2);
+  --research-cyan: #35d8ed;
+  --research-cyan-strong: #22bdda;
+  --research-purple: #7161ed;
+  --research-red: #ff789e;
+  --research-text-soft: #adbed0;
+}
+body { font-family: var(--font-geist-sans), Arial, sans-serif; }
+:focus-visible { outline: 2px solid #35d8ed; outline-offset: 3px; }
+.research-shell { background: radial-gradient(circle at 70% 0%, #123a59 0, transparent 30%), linear-gradient(180deg,#071a2b,#061726 55%,#071a2b); }
+.research-grid { animation: none; opacity: .35; }
+.research-scanline { animation: none!important; }
+.research-btn-primary { background: linear-gradient(105deg,#35d8ed,#52bbf5); color:#061726; box-shadow:0 8px 30px rgba(53,216,237,.16); }
+.research-btn-secondary { border-color:rgba(53,216,237,.35); background:rgba(7,26,43,.78); }
+.research-card, .research-panel, .research-glass { border-color:rgba(53,216,237,.16); background-color:#0a2236; }
+.healthtwin-container { width:min(1280px,calc(100% - 3rem)); margin-inline:auto; }
+.healthtwin-brand { display:inline-flex; align-items:center; gap:.8rem; min-width:0; text-decoration:none; color:white; }
+.healthtwin-brand>svg { flex:none; }
+.healthtwin-brand-copy { min-width:0; display:flex; flex-direction:column; }
+.healthtwin-brand-name { font-size:clamp(1.08rem,2vw,1.45rem); line-height:1.13; font-weight:800; letter-spacing:-.04em; white-space:nowrap; }
+.healthtwin-brand-name span { color:#35d8ed; }
+.healthtwin-brand-subtitle { max-width:420px; margin-top:.26rem; font-size:.64rem; letter-spacing:.015em; color:#bfd5e2; line-height:1.35; }
+.healthtwin-brand-compact .healthtwin-brand-name { font-size:1.14rem; }
+.healthtwin-topbar { position:relative; z-index:10; background:rgba(6,23,38,.94); border-bottom:1px solid rgba(53,216,237,.17); backdrop-filter:blur(16px); }
+.healthtwin-topbar-inner { display:flex; align-items:center; justify-content:space-between; gap:2rem; min-height:88px; }
+.healthtwin-top-links, .healthtwin-top-actions { display:flex; align-items:center; gap:1rem; }
+.healthtwin-top-links { color:#bdd0dd; font-size:.87rem; }
+.healthtwin-top-links a:hover { color:#35d8ed; }
+.healthtwin-top-actions a { white-space:nowrap; }
+.healthtwin-hero { min-height:530px; display:flex; align-items:center; background:linear-gradient(90deg,#061726 0%,rgba(6,23,38,.94) 27%,rgba(6,23,38,.63) 48%,rgba(6,23,38,.06) 100%),url('/healthtwin/hero.png') center right/cover no-repeat; border-bottom:1px solid rgba(53,216,237,.22); }
+.healthtwin-hero-inner { padding-block:6.4rem; }
+.healthtwin-hero h1 { max-width:760px; margin-top:1rem; font-size:clamp(2.65rem,5.5vw,5.8rem); line-height:1.05; letter-spacing:-.055em; font-weight:800; text-wrap:balance; text-shadow:0 2px 20px #061726; }
+.healthtwin-hero h1 span { display:block; color:#73e8f6; }
+.healthtwin-eyebrow { font-size:.71rem; letter-spacing:.19em; font-weight:750; color:#75e5f2; }
+.healthtwin-hero-lead { max-width:560px; margin-top:1.6rem; color:#d0dfea; font-size:1.06rem; line-height:1.8; text-shadow:0 1px 12px #061726; }
+.healthtwin-hero-actions { display:flex; flex-wrap:wrap; gap:.9rem; margin-top:2.2rem; }
+.healthtwin-hero-footnote { margin-top:2.2rem; color:#c1d5e1; font-size:.86rem; letter-spacing:.04em; }
+.healthtwin-pillar-section { padding-top:3.5rem; }
+.healthtwin-section-heading h2 { font-size:clamp(1.9rem,3vw,2.9rem); font-weight:780; letter-spacing:-.04em; margin-top:.45rem; }
+.healthtwin-section-heading>p:last-child:not(:first-child) { color:#b4c6d3; margin-top:.7rem; }
+.healthtwin-pillars { margin-top:1.5rem; display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:.7rem; }
+.healthtwin-pillar { position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.8rem; min-width:0; min-height:126px; padding:1rem .4rem; text-align:center; border:1px solid rgba(53,216,237,.17); border-radius:17px; color:#e3f2f7; background:linear-gradient(145deg,rgba(18,58,89,.52),rgba(7,26,43,.85)); font-size:.82rem; line-height:1.25; font-weight:650; }
+.healthtwin-pillar-icon { width:43px; height:43px; display:grid; place-items:center; color:#60e8f5; border:1px solid rgba(53,216,237,.52); border-radius:50%; box-shadow:0 0 18px rgba(53,216,237,.12); }
+.healthtwin-pillar-icon svg { width:24px; height:24px; }
+.healthtwin-pillars-compact { gap:.35rem; margin-block:1.6rem; }
+.healthtwin-pillars-compact .healthtwin-pillar { gap:.4rem; padding:.55rem .2rem; min-height:86px; font-size:.58rem; }
+.healthtwin-pillars-compact .healthtwin-pillar-icon { height:30px; width:30px; }
+.healthtwin-pillars-compact .healthtwin-pillar-icon svg { width:17px; height:17px; }
+.healthtwin-resource-section { padding-block:6rem; }
+.healthtwin-feature-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; margin-top:2rem; }
+.healthtwin-feature-card { display:block; overflow:hidden; border:1px solid rgba(53,216,237,.18); border-radius:18px; background:#0b2236; transition:border-color .2s, transform .2s; }
+.healthtwin-feature-card:hover { transform:translateY(-3px); border-color:#35d8ed; }
+.healthtwin-feature-image { height:165px; background-position:center; background-size:cover; }
+.healthtwin-feature-body { padding:1.2rem 1.3rem 1.4rem; }
+.healthtwin-feature-body h3 { font-weight:750; font-size:1.13rem; margin-top:.45rem; }
+.healthtwin-feature-body p { color:#bacbd6; font-size:.85rem; line-height:1.6; margin-top:.5rem; min-height:2.7rem; }
+.healthtwin-feature-action { display:block; color:#75e5f2; font-size:.83rem; font-weight:650; margin-top:1rem; }
+.healthtwin-join { display:flex; justify-content:space-between; align-items:center; gap:2rem; margin-block:0 5rem; border:1px solid rgba(53,216,237,.24); border-radius:22px; padding:2.5rem; background:linear-gradient(105deg,rgba(18,58,89,.8),rgba(113,97,237,.13)),url('/healthtwin/impact.png') right center/auto 100% no-repeat; }
+.healthtwin-join h2 { font-weight:780; font-size:2rem; margin:.5rem 0; }
+.healthtwin-join p:not(.healthtwin-eyebrow) { color:#cbdce6; }
+.healthtwin-footer { display:flex; align-items:center; justify-content:space-between; gap:2rem; padding-block:2rem; border-top:1px solid rgba(53,216,237,.14); color:#a8bfcc; font-size:.8rem; }
+.healthtwin-auth-page { background:radial-gradient(circle at 70% 12%,rgba(53,216,237,.11),transparent 36%),#061726; }
+.healthtwin-auth-card { background:#0a1e31; border-color:rgba(53,216,237,.22); box-shadow:0 30px 90px rgba(0,0,0,.35); }
+.healthtwin-auth-aside { display:flex; flex-direction:column; justify-content:flex-start; background:linear-gradient(180deg,rgba(6,23,38,.18),rgba(6,23,38,.45) 35%,#061726 100%),url('/healthtwin/auth.png') center/cover no-repeat; min-height:640px; }
+.healthtwin-auth-aside>div:nth-of-type(1) { margin-top:auto; padding-top:4rem; }
+.healthtwin-auth-aside h1 { text-shadow:0 2px 15px #061726; }
+.healthtwin-auth-form { background:linear-gradient(150deg,#0d2439,#071a2b); }
+.healthtwin-auth-form input:not([type='checkbox']), .healthtwin-auth-form select { background:#061726; border-color:rgba(157,204,226,.27); min-height:48px; }
+.healthtwin-auth-form input:focus,.healthtwin-auth-form select:focus { border-color:#35d8ed; box-shadow:0 0 0 3px rgba(53,216,237,.12); }
+.dashboard-topbar, .healthtwin-internal-header { background:#071a2b!important; border-color:rgba(53,216,237,.17)!important; }
+.dashboard-sidebar { background:#071a2b!important; }
+.dashboard-banner { background:linear-gradient(90deg,#071a2b 0%,rgba(7,26,43,.94) 42%,rgba(7,26,43,.1) 100%),url('/healthtwin/hero.png') center right/cover no-repeat!important; }
+.dashboard-biomedical-image { background: url('/healthtwin/digital-twin.png') center/cover no-repeat!important; }
+.dashboard-biomedical-caption { display:none; }
+.healthtwin-dashboard-pillars { padding:1rem 1.5rem 0; }
+.healthtwin-dashboard-pillars .healthtwin-pillars { margin-top:0; }
+.healthtwin-mobile-links { display:flex; gap:.6rem; padding:.8rem 1.5rem; overflow-x:auto; border-bottom:1px solid rgba(53,216,237,.15); background:#071a2b; }
+.healthtwin-mobile-links a { flex:none; color:#cfe5ee; border:1px solid rgba(53,216,237,.25); border-radius:20px; padding:.45rem .85rem; font-size:.82rem; }
+.healthtwin-mobile-links a:hover { color:#35d8ed; }
+.healthtwin-admin-hero { background:linear-gradient(90deg,#071a2b 0%,rgba(7,26,43,.97) 52%,rgba(7,26,43,.5)),url('/healthtwin/impact.png') center right/cover!important; }
+.healthtwin-resource-visual { background-size:cover; background-position:center; }
+.healthtwin-library-hero { min-height:240px; padding:2rem; border-radius:22px; border:1px solid rgba(53,216,237,.22); }
+.healthtwin-library-hero>div { max-width:650px; }
+.healthtwin-library-hero h1,.healthtwin-library-hero p { text-shadow:0 2px 10px #061726; }
+.healthtwin-courses-hero { background:linear-gradient(90deg,#061726 0%,rgba(6,23,38,.9) 47%,rgba(6,23,38,.15)),url('/healthtwin/data-ai.png') right center/cover; }
+.healthtwin-silo-hero { background:linear-gradient(90deg,#061726 0%,rgba(6,23,38,.91) 47%,rgba(6,23,38,.17)),url('/healthtwin/silo.png') right center/cover; }
+@media (min-width:1280px) { .healthtwin-mobile-links { display:none; } }
+@media (max-width:1023px) { .healthtwin-top-links { display:none; } .healthtwin-auth-aside { min-height:345px; background-position:center 39%; } .healthtwin-auth-aside>div:nth-of-type(1) { margin-top:0; padding-top:2.2rem; } .healthtwin-auth-aside .mt-20 { margin-top:2rem; } }
+@media (max-width:767px) { .healthtwin-container { width:min(100% - 2rem,1280px); } .healthtwin-topbar-inner { flex-wrap:wrap; gap:.75rem; padding-block:.8rem; } .healthtwin-top-actions { width:100%; justify-content:space-between; gap:.6rem; } .healthtwin-top-actions a { flex:1; justify-content:center; text-align:center; font-size:.79rem; padding-inline:.5rem; } .healthtwin-hero { min-height:550px; background-position:64% center; background-image:linear-gradient(90deg,rgba(6,23,38,.96),rgba(6,23,38,.7) 68%,rgba(6,23,38,.42)),url('/healthtwin/hero.png'); } .healthtwin-hero-inner { padding-block:4.5rem; } .healthtwin-pillar { min-height:100px; font-size:.7rem; } .healthtwin-pillars { grid-template-columns:repeat(2,minmax(0,1fr)); } .healthtwin-pillar:last-child { grid-column:1/-1; } .healthtwin-pillars-compact { grid-template-columns:repeat(5,minmax(0,1fr)); } .healthtwin-pillars-compact .healthtwin-pillar:last-child { grid-column:auto; } .healthtwin-feature-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .healthtwin-join { flex-direction:column; align-items:flex-start; background-image:linear-gradient(90deg,rgba(7,26,43,.94),rgba(7,26,43,.7)),url('/healthtwin/impact.png'); } .healthtwin-footer { flex-wrap:wrap; } .healthtwin-auth-aside { min-height:auto; } .healthtwin-auth-aside .mt-20 { margin-top:1.6rem; } }
+@media (max-width:767px) { .healthtwin-pillars-compact { grid-template-columns:repeat(2,minmax(0,1fr)); gap:.5rem; } .healthtwin-pillars-compact .healthtwin-pillar { min-height:76px; font-size:.72rem; } .healthtwin-pillars-compact .healthtwin-pillar:last-child { grid-column:1/-1; } }
+@media (max-width:540px) { .healthtwin-feature-grid { grid-template-columns:1fr; } .healthtwin-hero h1 { font-size:2.7rem; } .healthtwin-auth-aside { padding:1.5rem; } .healthtwin-auth-aside .mt-20 { margin-top:1rem; } .healthtwin-auth-aside h1 { font-size:1.7rem; } .healthtwin-auth-form { padding:1.5rem; } }
+@media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; animation-duration:.01ms!important; transition-duration:.01ms!important; } }

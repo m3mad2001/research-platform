@@ -1,0 +1,907 @@
+@import "tailwindcss";
+
+/* =========================================================
+   ENGINEERING RESEARCH PLATFORM THEME
+========================================================= */
+
+:root {
+  --background: #020817;
+  --foreground: #f8fafc;
+
+  --research-bg: #020817;
+  --research-panel: rgba(8, 20, 40, 0.82);
+  --research-panel-strong: rgba(7, 18, 36, 0.95);
+  --research-border: rgba(34, 211, 238, 0.14);
+
+  --research-cyan: #22d3ee;
+  --research-cyan-strong: #06b6d4;
+  --research-teal: #14f1c6;
+  --research-blue: #38bdf8;
+  --research-purple: #8b5cf6;
+  --research-amber: #facc15;
+  --research-red: #fb7185;
+  --research-text-soft: #94a3b8;
+}
+
+html,
+body {
+  min-height: 100%;
+  background: var(--background);
+  color: var(--foreground);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Selection */
+::selection {
+  background: rgba(34, 211, 238, 0.25);
+  color: white;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #03111f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    rgba(34, 211, 238, 0.45),
+    rgba(20, 241, 198, 0.35)
+  );
+  border-radius: 9999px;
+  border: 2px solid #03111f;
+}
+
+/* =========================================================
+   MAIN RESEARCH SHELL
+========================================================= */
+
+.research-shell {
+  position: relative;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 80% 10%, rgba(0, 183, 255, 0.12), transparent 30%),
+    radial-gradient(circle at 15% 75%, rgba(0, 255, 213, 0.07), transparent 25%),
+    linear-gradient(180deg, #010614 0%, #020817 35%, #020617 100%);
+  isolation: isolate;
+}
+
+/* =========================================================
+   GLASS
+========================================================= */
+
+.research-glass {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(11, 28, 54, 0.92),
+      rgba(5, 18, 39, 0.86)
+    );
+  border: 1px solid rgba(34, 211, 238, 0.12);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.025),
+    0 20px 50px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.research-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(34, 211, 238, 0.12);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(7, 22, 45, 0.96),
+      rgba(4, 15, 34, 0.92)
+    );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.035),
+    0 18px 40px rgba(0, 0, 0, 0.22);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.research-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(34, 211, 238, 0.22);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 22px 48px rgba(0, 0, 0, 0.28),
+    0 0 0 1px rgba(34, 211, 238, 0.06);
+}
+
+/* =========================================================
+   MOVING ENGINEERING GRID
+========================================================= */
+
+.research-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(34, 211, 238, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.035) 1px, transparent 1px);
+  background-size: 42px 42px;
+  animation: researchGridMove 22s linear infinite;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent);
+}
+
+@keyframes researchGridMove {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 42px 42px;
+  }
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.research-hero {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2rem;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(8, 31, 59, 0.98),
+      rgba(4, 18, 40, 0.92)
+    );
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.research-hero-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, rgba(34, 211, 238, 0.18) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: linear-gradient(to left, black, transparent 70%);
+  -webkit-mask-image: linear-gradient(to left, black, transparent 70%);
+}
+
+.research-hero-glow {
+  position: absolute;
+  right: -120px;
+  top: -80px;
+  width: 420px;
+  height: 420px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.18), transparent 65%);
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+.research-section-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--research-cyan);
+}
+
+.research-heading {
+  font-size: clamp(2.5rem, 5vw, 4.75rem);
+  line-height: 0.98;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.research-muted {
+  color: var(--research-text-soft);
+}
+
+/* =========================================================
+   ECG ANIMATION
+========================================================= */
+
+.ecg-wrap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 18px;
+  height: 90px;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.ecg-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ecg-path {
+  fill: none;
+  stroke: rgba(34, 211, 238, 0.95);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.45));
+  stroke-dasharray: 1600;
+  stroke-dashoffset: 1600;
+  animation: ecgDraw 5s linear infinite;
+}
+
+@keyframes ecgDraw {
+  0% {
+    stroke-dashoffset: 1600;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  80% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: -1600;
+    opacity: 0;
+  }
+}
+
+/* =========================================================
+   ATMOSPHERIC GLOWING ORBS
+========================================================= */
+
+.research-orb {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 9999px;
+  filter: blur(120px);
+  opacity: 0.11;
+  pointer-events: none;
+}
+
+.research-orb-one {
+  top: 5%;
+  right: 5%;
+  background: rgb(0, 204, 255);
+  animation: researchFloatOne 14s ease-in-out infinite;
+}
+
+.research-orb-two {
+  bottom: 8%;
+  left: 10%;
+  background: rgb(0, 255, 198);
+  animation: researchFloatTwo 18s ease-in-out infinite;
+}
+
+@keyframes researchFloatOne {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-80px, 60px, 0) scale(1.15);
+  }
+}
+
+@keyframes researchFloatTwo {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(100px, -70px, 0) scale(1.12);
+  }
+}
+
+/* =========================================================
+   SCANNING LINE
+========================================================= */
+
+.research-scanline {
+  position: absolute;
+  top: -10%;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(34, 211, 238, 0.025),
+      transparent
+    );
+  animation: researchScan 12s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes researchScan {
+  from {
+    transform: translateY(-20vh);
+  }
+  to {
+    transform: translateY(130vh);
+  }
+}
+
+/* =========================================================
+   LOGO WAVEFORM
+========================================================= */
+
+.research-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  width: 36px;
+  height: 36px;
+}
+
+.research-logo span {
+  width: 3px;
+  border-radius: 9999px;
+  background: rgb(34, 211, 238);
+  box-shadow: 0 0 12px rgba(34, 211, 238, 0.7);
+  animation: researchWave 1.2s ease-in-out infinite;
+}
+
+.research-logo span:nth-child(1) {
+  height: 10px;
+  animation-delay: 0s;
+}
+
+.research-logo span:nth-child(2) {
+  height: 20px;
+  animation-delay: 0.1s;
+}
+
+.research-logo span:nth-child(3) {
+  height: 30px;
+  animation-delay: 0.2s;
+}
+
+.research-logo span:nth-child(4) {
+  height: 18px;
+  animation-delay: 0.3s;
+}
+
+.research-logo span:nth-child(5) {
+  height: 10px;
+  animation-delay: 0.4s;
+}
+
+@keyframes researchWave {
+  0%, 100% {
+    transform: scaleY(0.55);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.research-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.95rem;
+  padding: 0.9rem 1.25rem;
+  font-weight: 700;
+  color: #04111f;
+  background: linear-gradient(135deg, #22d3ee, #14f1c6);
+  box-shadow:
+    0 10px 30px rgba(34, 211, 238, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.research-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 16px 34px rgba(34, 211, 238, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.32);
+}
+
+.research-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.95rem;
+  padding: 0.9rem 1.25rem;
+  font-weight: 700;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  transition: all 0.25s ease;
+}
+
+.research-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(34, 211, 238, 0.2);
+}
+
+/* =========================================================
+   STAT CARDS
+========================================================= */
+
+.research-stat {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  padding: 1.25rem 1.35rem;
+  border: 1px solid rgba(34, 211, 238, 0.12);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(10, 24, 48, 0.96),
+      rgba(5, 16, 33, 0.93)
+    );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.035),
+    0 14px 32px rgba(0, 0, 0, 0.18);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.research-stat:hover {
+  transform: translateY(-2px);
+  border-color: rgba(34, 211, 238, 0.22);
+}
+
+.research-stat::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(34, 211, 238, 0.045),
+      transparent 45%
+    );
+  pointer-events: none;
+}
+
+.research-stat-label {
+  font-size: 0.9rem;
+  color: #a5b4fc;
+  opacity: 0.8;
+}
+
+.research-stat-value {
+  margin-top: 0.55rem;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #22d3ee;
+}
+
+/* =========================================================
+   PLATFORM / RESOURCE CARDS
+========================================================= */
+
+.platform-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(34, 211, 238, 0.12);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(7, 20, 40, 0.98),
+      rgba(3, 12, 28, 0.96)
+    );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.03),
+    0 18px 36px rgba(0, 0, 0, 0.2);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.platform-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(34, 211, 238, 0.22);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 24px 48px rgba(0, 0, 0, 0.28);
+}
+
+.platform-card::after {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 80%;
+  height: 300%;
+  transform: rotate(25deg);
+  background:
+    linear-gradient(
+      to right,
+      transparent,
+      rgba(255, 255, 255, 0.05),
+      transparent
+    );
+  transition: transform 0.8s ease;
+}
+
+.platform-card:hover::after {
+  transform: translateX(420%) rotate(25deg);
+}
+
+/* =========================================================
+   SIDEBAR LINKS
+========================================================= */
+
+.research-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  border-radius: 1rem;
+  padding: 0.95rem 1rem;
+  color: #cbd5e1;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+  border: 1px solid transparent;
+}
+
+.research-nav-link:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(34, 211, 238, 0.12);
+  transform: translateX(2px);
+}
+
+.research-nav-link-active {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(34, 211, 238, 0.12),
+      rgba(20, 241, 198, 0.08)
+    );
+  border-color: rgba(34, 211, 238, 0.22);
+  color: white;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 0 0 1px rgba(34, 211, 238, 0.05);
+}
+
+/* =========================================================
+   BADGES
+========================================================= */
+
+.research-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: 9999px;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid rgba(34, 211, 238, 0.16);
+  background: rgba(34, 211, 238, 0.08);
+  color: #67e8f9;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.research-badge-success {
+  border-color: rgba(20, 241, 198, 0.18);
+  background: rgba(20, 241, 198, 0.09);
+  color: #5eead4;
+}
+
+.research-badge-warn {
+  border-color: rgba(250, 204, 21, 0.2);
+  background: rgba(250, 204, 21, 0.08);
+  color: #fde047;
+}
+
+/* =========================================================
+   TABLES / PANELS
+========================================================= */
+
+.research-panel {
+  border-radius: 1.75rem;
+  border: 1px solid rgba(34, 211, 238, 0.12);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(8, 22, 44, 0.98),
+      rgba(4, 14, 30, 0.96)
+    );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.03),
+    0 18px 40px rgba(0, 0, 0, 0.22);
+}
+
+/* Compact biomedical dashboard inspired by the supplied reference. */
+.dashboard-shell {
+  background: #061120;
+}
+
+.dashboard-topbar {
+  background: #071321;
+}
+
+.dashboard-topbar .research-btn-primary,
+.dashboard-topbar button {
+  border-radius: 0.65rem;
+  padding: 0.65rem 1rem;
+}
+
+.dashboard-topbar .research-btn-primary {
+  background: linear-gradient(135deg, #24dbef, #21bdeb);
+}
+
+.dashboard-topbar button {
+  border-color: rgba(56, 189, 248, 0.24);
+  background: #10243a;
+  color: #e2e8f0;
+}
+
+.dashboard-sidebar {
+  background: linear-gradient(180deg, #071626 0%, #07192e 100%);
+}
+
+.dashboard-sidebar nav > a {
+  min-height: 43px;
+}
+
+.dashboard-content {
+  background: linear-gradient(180deg, #081a2a 0%, #061220 72%);
+}
+
+.dashboard-banner {
+  background: linear-gradient(100deg, #0b1c31 0%, #071a2c 58%, #062033 100%);
+}
+
+.dashboard-banner-copy {
+  min-height: 216px;
+}
+
+.dashboard-banner-art {
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 14%);
+  mask-image: linear-gradient(90deg, transparent, black 14%);
+}
+
+.dashboard-biomedical-image {
+  background-image: url('/images/biomedical-hero-v2.png');
+  background-size: cover;
+  background-position: 58% 44%;
+}
+
+.dashboard-biomedical-fade {
+  background: linear-gradient(90deg, #0b1c31 0%, transparent 20%, transparent 70%, rgba(2, 19, 34, 0.72) 100%);
+}
+
+.dashboard-ecg-overlay {
+  left: 12%;
+  top: 38%;
+  width: 78%;
+  height: 72px;
+  overflow: visible;
+  filter: drop-shadow(0 0 5px rgba(34, 211, 238, .52));
+}
+
+.dashboard-ecg-base,
+.dashboard-ecg-beam {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.5;
+}
+
+.dashboard-ecg-base {
+  stroke: rgba(65, 227, 241, .35);
+}
+
+.dashboard-ecg-beam {
+  stroke: #86faff;
+  stroke-width: 3.2;
+  stroke-dasharray: 105 695;
+  animation: dashboardEcgTravel 5.6s linear infinite;
+}
+
+.dashboard-heart-halo {
+  left: 75%;
+  top: 58%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(110, 252, 252, .55);
+  box-shadow: 0 0 18px rgba(34, 211, 238, .75);
+  transform: translate(-50%, -50%);
+}
+
+.dashboard-heart-halo::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border: 1px solid rgba(116, 246, 255, .65);
+  border-radius: 50%;
+  animation: dashboardHeartPulse 2.8s ease-out infinite;
+}
+
+@keyframes dashboardEcgTravel {
+  from { stroke-dashoffset: 800; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes dashboardHeartPulse {
+  0% { transform: scale(.65); opacity: .65; }
+  75%, 100% { transform: scale(2); opacity: 0; }
+}
+
+@keyframes dashboardCardEnter {
+  from { transform: translateY(9px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.dashboard-banner-angle {
+  opacity: 0.96;
+  border-right: 1px solid rgba(34, 211, 238, 0.26);
+}
+
+.dashboard-status-card {
+  min-height: 104px;
+  background: linear-gradient(135deg, #0b2942 0%, #082137 100%);
+  border-color: rgba(38, 197, 235, 0.32);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .05), 0 10px 25px rgba(0, 0, 0, .11);
+  animation: dashboardCardEnter .58s ease-out both;
+}
+
+.dashboard-status-card:nth-child(2) { animation-delay: 75ms; }
+.dashboard-status-card:nth-child(3) { animation-delay: 150ms; }
+.dashboard-status-card:nth-child(4) { animation-delay: 225ms; }
+
+.dashboard-status-card > .flex {
+  min-height: 70px;
+}
+
+.dashboard-account {
+  min-height: 84px;
+  background: linear-gradient(110deg, #092944, #08233a 65%, #071e34);
+}
+
+.dashboard-resources {
+  border-radius: 1.45rem;
+  background: linear-gradient(140deg, #09243d, #081b31 72%);
+}
+
+.dashboard-resource-card {
+  border-radius: 0.8rem;
+  background-color: #091a30;
+  min-height: 224px;
+  animation: dashboardCardEnter .62s ease-out both;
+}
+
+.dashboard-resource-card:nth-child(2) { animation-delay: 70ms; }
+.dashboard-resource-card:nth-child(3) { animation-delay: 140ms; }
+.dashboard-resource-card:nth-child(4) { animation-delay: 210ms; }
+.dashboard-resource-card:nth-child(5) { animation-delay: 280ms; }
+.dashboard-resource-card:nth-child(6) { animation-delay: 350ms; }
+.dashboard-resource-card:nth-child(7) { animation-delay: 420ms; }
+
+.dashboard-resource-card:hover,
+.dashboard-resource-card:focus-within {
+  transform: translateY(-3px);
+  border-color: rgba(103, 232, 249, .6);
+}
+
+.dashboard-resource-card > .relative {
+  display: flex;
+  flex-direction: column;
+  min-height: 192px;
+}
+
+.dashboard-resource-card > .relative > p:nth-of-type(2) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+
+.dashboard-resource-card > .relative > a,
+.dashboard-resource-card > .relative > div:last-child {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.dashboard-resource-card .pointer-events-none {
+  opacity: .48;
+}
+
+.dashboard-notice {
+  background: linear-gradient(90deg, #0a3452, #092942);
+}
+
+@media (max-width: 1023px) {
+  .dashboard-banner-copy { min-height: 220px; }
+  .dashboard-banner-angle { display: none; }
+}
+
+@media (max-width: 639px) {
+  .dashboard-banner-copy { min-height: 250px; }
+  .dashboard-topbar .research-btn-primary { display: none; }
+}
+
+/* Course README: GitHub-style Markdown in the platform's dark palette. */
+.course-readme { color: #d5e5f1; line-height: 1.7; overflow-wrap: anywhere; }
+.course-readme > :first-child { margin-top: 0; }
+.course-readme h1, .course-readme h2, .course-readme h3,
+.course-readme h4, .course-readme h5, .course-readme h6 {
+  margin: 1.5em 0 0.6em;
+  color: #f7fbff;
+  font-weight: 700;
+  line-height: 1.3;
+  scroll-margin-top: 1rem;
+}
+.course-readme h1 { font-size: 1.75rem; border-bottom: 1px solid #27405c; padding-bottom: 0.35em; }
+.course-readme h2 { font-size: 1.4rem; border-bottom: 1px solid #27405c; padding-bottom: 0.3em; }
+.course-readme h3 { font-size: 1.15rem; }
+.course-readme h4 { font-size: 1rem; }
+.course-readme p, .course-readme ul, .course-readme ol,
+.course-readme blockquote, .course-readme pre, .course-readme table { margin: 0 0 1rem; }
+.course-readme a { color: #67e8f9; text-decoration: underline; text-underline-offset: 3px; }
+.course-readme a:hover { color: #a5f3fc; }
+.course-readme ul { list-style: disc; padding-left: 1.7rem; }
+.course-readme ol { list-style: decimal; padding-left: 1.7rem; }
+.course-readme li { margin: 0.25rem 0; }
+.course-readme li > ul, .course-readme li > ol { margin-top: 0.3rem; }
+.course-readme blockquote { border-left: 3px solid #38bdf8; padding: 0.5rem 1rem; color: #a9bfd1; background: #0b2338; }
+.course-readme hr { border: 0; border-top: 1px solid #27405c; margin: 1.5rem 0; }
+.course-readme img { max-width: 100%; height: auto; display: inline-block; border-radius: 0.5rem; }
+.course-readme pre, .course-readme code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.course-readme pre { overflow-x: auto; border: 1px solid #27405c; background: #061628; border-radius: 0.7rem; padding: 1rem; }
+.course-readme :not(pre) > code { border-radius: 0.25rem; background: #123048; padding: 0.12rem 0.35rem; }
+.course-readme table { display: block; width: max-content; max-width: 100%; overflow-x: auto; border-collapse: collapse; }
+.course-readme th, .course-readme td { border: 1px solid #27405c; padding: 0.5rem 0.8rem; text-align: left; vertical-align: top; }
+.course-readme th { background: #13334b; color: #f7fbff; }
+.course-readme tr:nth-child(even) { background: #0b2338; }
+.course-readme [align="center"] { text-align: center; }
+
+/* =========================================================
+   ACCESSIBILITY: REDUCE MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .research-grid,
+  .ecg-path,
+  .research-orb-one,
+  .research-orb-two,
+  .research-scanline,
+  .research-logo span {
+    animation: none !important;
+  }
+
+  .dashboard-ecg-beam,
+  .dashboard-heart-halo::before,
+  .dashboard-status-card,
+  .dashboard-resource-card {
+    animation: none !important;
+  }
+
+  .research-card,
+  .research-stat,
+  .platform-card,
+  .research-btn-primary,
+  .research-btn-secondary {
+    transition: none !important;
+  }
+}
