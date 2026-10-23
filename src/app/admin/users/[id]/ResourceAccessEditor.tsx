@@ -73,7 +73,7 @@ export default function ResourceAccessEditor({
   }
 
   return (
-    <section className="mt-8 rounded-2xl border border-cyan-400/25 bg-[#0b2237] p-6">
+    <section className="mt-8 rounded-2xl border border-cyan-400/25 bg-[var(--card)] p-6">
       <h2 className="text-xl font-bold">Resource Access</h2>
       <p className="mt-2 text-sm text-slate-300">
         Choose which cards this user may access. A new account starts with no resources.

@@ -85,7 +85,7 @@ export default function AccessPeriodEditor({
           {mode === "date" && <label className="text-sm text-slate-300">
             Expiry date and time — Saudi time (UTC+03:00)
             <input type="datetime-local" value={date} onChange={(event) => { setDate(event.target.value); setMessage(""); }}
-              className="mt-2 block w-full rounded-xl border border-white/10 bg-slate-950 p-3 text-white [color-scheme:dark]" />
+              className="mt-2 block w-full rounded-xl border border-white/10 bg-slate-950 p-3 text-white [color-scheme:light_dark]" />
           </label>}
         </div>
         <div className="flex flex-wrap gap-3">

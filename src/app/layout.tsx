@@ -1,21 +1,15 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import "./healthtwin.css";
+import "./apple.css"; // must stay last
 import ActivityTracker from "../components/ActivityTracker";
 import SiteVisitTracker from "../components/SiteVisitTracker";
 import { BRAND_NAME, BRAND_SUBTITLE } from "../components/HealthTwinBrand";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// SF Pro can't be self-hosted, so Apple devices render it natively via the system stack.
+// Everyone else gets Inter, which is visually the closest match.
+const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
 
 export const metadata: Metadata = {
   title: { default: BRAND_NAME, template: `%s | ${BRAND_NAME}` },
@@ -27,17 +21,20 @@ export const metadata: Metadata = {
     ],
     apple: "/icons/icon-192.png",
   },
-  appleWebApp: { capable: true, title: BRAND_NAME, statusBarStyle: "black-translucent" },
+  appleWebApp: { capable: true, title: BRAND_NAME, statusBarStyle: "default" },
 };
 
-export const viewport: Viewport = { themeColor: "#061726" };
+export const viewport: Viewport = {
+  colorScheme: "light dark",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#FFFFFF" },
+    { media: "(prefers-color-scheme: dark)", color: "#000000" },
+  ],
+};
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
+    <html lang="en" className={`${inter.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         <ActivityTracker />
         <SiteVisitTracker />

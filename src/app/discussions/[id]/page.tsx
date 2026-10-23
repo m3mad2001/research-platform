@@ -74,7 +74,7 @@ export default async function DiscussionThreadPage({ params, searchParams }: {
       <h2 className="text-xl font-bold">Add a reply</h2>
       <textarea name="body" required minLength={2} maxLength={4000} rows={5}
         placeholder="Share an explanation, reference, or follow-up question."
-        className="rounded-xl border border-white/20 bg-[#061726] p-4 text-white placeholder:text-slate-500" />
+        className="rounded-xl border border-white/20 bg-[var(--bg)] p-4 text-white placeholder:text-slate-500" />
       <div><button type="submit" className="research-btn-primary">Post Reply</button></div>
     </form>}
     {thread.status === "closed" && <p className="mt-6 text-sm text-slate-400">This discussion is closed to new replies.</p>}

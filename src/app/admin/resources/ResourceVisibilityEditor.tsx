@@ -33,7 +33,7 @@ export default function ResourceVisibilityEditor({ initialModes }: { initialMode
           <p className="mt-1 text-xs uppercase tracking-wider text-cyan-300">Current: {modes[resource.key]}</p></div>
         <div className="flex flex-wrap gap-2">{(["visible","locked","hidden"] as const).map((mode) =>
           <button type="button" key={mode} disabled={saving === resource.key} onClick={() => void update(resource.key, mode)}
-            className={`rounded-lg border px-3 py-2 text-sm font-semibold capitalize transition disabled:opacity-50 ${modes[resource.key] === mode ? "border-cyan-300 bg-cyan-400 text-slate-950" : "border-white/15 bg-slate-950/60 text-slate-200 hover:border-cyan-400/50"}`}>
+            className={`rounded-lg border px-3 py-2 text-sm font-semibold capitalize transition disabled:opacity-50 ${modes[resource.key] === mode ? "border-cyan-300 bg-cyan-400 text-[#ffffff]" : "border-white/15 bg-slate-950/60 text-slate-200 hover:border-cyan-400/50"}`}>
             {mode}
           </button>)}</div>
       </div>)}</div>

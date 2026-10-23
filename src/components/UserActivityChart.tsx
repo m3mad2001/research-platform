@@ -61,51 +61,51 @@ export default function UserActivityChart({
         >
           <CartesianGrid
             strokeDasharray="3 3"
-            stroke="#1e293b"
+            stroke="var(--hair)"
           />
 
           <XAxis
             dataKey="date"
-            stroke="#64748b"
+            stroke="var(--fg-2)"
             tick={{
-              fill: "#94a3b8",
+              fill: "var(--fg-2)",
               fontSize: 12,
             }}
             tickLine={false}
             axisLine={{
-              stroke: "#334155",
+              stroke: "var(--hair)",
             }}
           />
 
           <YAxis
-            stroke="#64748b"
+            stroke="var(--fg-2)"
             tick={{
-              fill: "#94a3b8",
+              fill: "var(--fg-2)",
               fontSize: 12,
             }}
             tickLine={false}
             axisLine={{
-              stroke: "#334155",
+              stroke: "var(--hair)",
             }}
             width={45}
             label={{
               value: "Minutes",
               angle: -90,
               position: "insideLeft",
-              fill: "#64748b",
+              fill: "var(--fg-2)",
               fontSize: 12,
             }}
           />
 
           <Tooltip
             contentStyle={{
-              backgroundColor: "#020617",
+              backgroundColor: "var(--card)",
               border: "1px solid #334155",
               borderRadius: "12px",
-              color: "#ffffff",
+              color: "var(--fg)",
             }}
             labelStyle={{
-              color: "#94a3b8",
+              color: "var(--fg-2)",
             }}
             formatter={(value) => [
               `${value} min`,
@@ -117,11 +117,11 @@ export default function UserActivityChart({
             type="monotone"
             dataKey="minutes"
             name="Active Time"
-            stroke="#22d3ee"
+            stroke="var(--accent)"
             strokeWidth={3}
             dot={{
               r: 4,
-              fill: "#22d3ee",
+              fill: "var(--accent)",
             }}
             activeDot={{
               r: 6,

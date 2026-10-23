@@ -111,7 +111,7 @@ export default async function AdminPage() {
       {/* =====================================================
           TOP HEADER
       ===================================================== */}
-      <header className="relative z-40 border-b border-cyan-400/10 bg-[#020817]/90 backdrop-blur-xl">
+      <header className="relative z-40 border-b border-cyan-400/10 bg-[var(--glass)] backdrop-blur-xl">
         <div className="mx-auto flex max-w-[1800px] items-center justify-between px-6 py-4 lg:px-8">
           {/* Brand */}
           <BrandLockup />
@@ -140,7 +140,7 @@ export default async function AdminPage() {
         {/* =====================================================
             SIDEBAR
         ===================================================== */}
-        <aside className="relative z-30 hidden min-h-[calc(100vh-77px)] w-64 shrink-0 border-r border-cyan-400/10 bg-[#020a19]/90 px-4 py-7 backdrop-blur-xl xl:block">
+        <aside className="relative z-30 hidden min-h-[calc(100vh-77px)] w-64 shrink-0 border-r border-cyan-400/10 bg-[var(--card)] px-4 py-7 backdrop-blur-xl xl:block">
           <div className="mb-7 px-3">
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-cyan-400">
               Administration
@@ -401,7 +401,7 @@ export default async function AdminPage() {
                   {pendingUsers.map((pendingUser) => (
                     <div
                       key={pendingUser.id}
-                      className="group grid gap-6 rounded-2xl border border-white/10 bg-[#061226]/80 p-6 transition duration-300 hover:border-cyan-400/20 hover:bg-[#08172e] xl:grid-cols-[1.3fr_0.8fr_0.9fr_auto] xl:items-center"
+                      className="group grid gap-6 rounded-2xl border border-white/10 bg-[var(--fill)] p-6 transition duration-300 hover:border-cyan-400/20 hover:bg-[var(--bg-alt)] xl:grid-cols-[1.3fr_0.8fr_0.9fr_auto] xl:items-center"
                     >
                       <UserIdentity
                         name={pendingUser.full_name}
@@ -455,7 +455,7 @@ export default async function AdminPage() {
                   {approvedUsers.map((approvedUser) => (
                     <div
                       key={approvedUser.id}
-                      className="group grid gap-6 rounded-2xl border border-white/10 bg-[#061226]/80 p-6 transition duration-300 hover:-translate-y-0.5 hover:border-cyan-400/25 hover:bg-[#08172e] xl:grid-cols-[1.3fr_0.8fr_0.8fr_0.8fr_auto] xl:items-center"
+                      className="group grid gap-6 rounded-2xl border border-white/10 bg-[var(--fill)] p-6 transition duration-300 hover:-translate-y-0.5 hover:border-cyan-400/25 hover:bg-[var(--bg-alt)] xl:grid-cols-[1.3fr_0.8fr_0.8fr_0.8fr_auto] xl:items-center"
                     >
                       <UserIdentity
                         name={approvedUser.full_name}
@@ -613,7 +613,7 @@ export default async function AdminPage() {
                     (inactiveUser) => (
                       <div
                         key={inactiveUser.id}
-                        className="grid gap-6 rounded-2xl border border-white/10 bg-[#061226]/75 p-6 md:grid-cols-[1.4fr_0.8fr_auto] md:items-center"
+                        className="grid gap-6 rounded-2xl border border-white/10 bg-[var(--fill)] p-6 md:grid-cols-[1.4fr_0.8fr_auto] md:items-center"
                       >
                         <UserIdentity
                           name={inactiveUser.full_name}
@@ -762,7 +762,7 @@ function AdminStatCard({
 
   return (
     <div
-      className={`group relative overflow-hidden rounded-2xl border ${selected.border} bg-gradient-to-br from-[#09182f] to-[#051020] p-5 transition duration-300 hover:-translate-y-1`}
+      className={`group relative overflow-hidden rounded-2xl border ${selected.border} bg-[var(--card)] p-5 transition duration-300 hover:-translate-y-1`}
     >
       <div className="flex items-center gap-4">
         <div

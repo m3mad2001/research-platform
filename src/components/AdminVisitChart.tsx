@@ -17,14 +17,14 @@ export default function AdminVisitChart({ data }: { data: Array<{
   return <div className="mt-5 h-72 w-full" role="img" aria-label="Daily site visits, registration page visits, and card opens over 30 days">
     <ResponsiveContainer width="100%" height="100%">
       <LineChart data={rows} margin={{ top: 10, right: 15, left: 0, bottom: 10 }}>
-        <CartesianGrid stroke="#1e3852" strokeDasharray="3 3" />
-        <XAxis dataKey="date" tick={{ fill: "#a9bfd1", fontSize: 11 }} axisLine={false} tickLine={false} minTickGap={20} />
-        <YAxis allowDecimals={false} tick={{ fill: "#a9bfd1", fontSize: 11 }} axisLine={false} tickLine={false} />
-        <Tooltip contentStyle={{ background: "#061628", border: "1px solid #27405c", borderRadius: 12 }} />
+        <CartesianGrid stroke="var(--hair)" strokeDasharray="3 3" />
+        <XAxis dataKey="date" tick={{ fill: "var(--fg-2)", fontSize: 11 }} axisLine={false} tickLine={false} minTickGap={20} />
+        <YAxis allowDecimals={false} tick={{ fill: "var(--fg-2)", fontSize: 11 }} axisLine={false} tickLine={false} />
+        <Tooltip contentStyle={{ background: "var(--card)", border: "1px solid var(--hair)", borderRadius: 12 }}labelStyle={{ color: "var(--fg-2)" }} itemStyle={{ color: "var(--fg)" }} />
         <Legend />
-        <Line name="Platform visits" dataKey="site" stroke="#22d3ee" strokeWidth={2.5} dot={false} />
-        <Line name="Registration page" dataKey="registration" stroke="#fbbf24" strokeWidth={2.5} dot={false} />
-        <Line name="Card opens" dataKey="cards" stroke="#34d399" strokeWidth={2.5} dot={false} />
+        <Line name="Platform visits" dataKey="site" stroke="var(--accent)" strokeWidth={2.5} dot={false} />
+        <Line name="Registration page" dataKey="registration" stroke="var(--orange)" strokeWidth={2.5} dot={false} />
+        <Line name="Card opens" dataKey="cards" stroke="var(--green)" strokeWidth={2.5} dot={false} />
       </LineChart>
     </ResponsiveContainer>
   </div>;

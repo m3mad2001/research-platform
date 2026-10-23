@@ -67,10 +67,10 @@ export default function ApproveButton({ userId, initialExpiresAt }: {
         Expiry — Saudi time (UTC+03:00)
         <input type="datetime-local" value={customDate} disabled={loading}
           onChange={(event) => { setCustomDate(event.target.value); setMessage(""); }}
-          className="mt-1 block w-full rounded-lg border border-white/10 bg-slate-950 p-2 text-sm text-white [color-scheme:dark]" />
+          className="mt-1 block w-full rounded-lg border border-white/10 bg-slate-950 p-2 text-sm text-white [color-scheme:light_dark]" />
       </label>}
       <button type="button" onClick={approveUser} disabled={loading}
-        className="rounded-lg bg-cyan-500 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-cyan-400 disabled:opacity-50">
+        className="rounded-lg bg-cyan-500 px-4 py-2 text-sm font-semibold text-[#ffffff] transition hover:bg-cyan-400 disabled:opacity-50">
         {loading ? "Approving..." : "Approve"}
       </button>
       {message && <p role="status" className="text-xs text-cyan-200">{message}</p>}

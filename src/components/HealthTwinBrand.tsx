@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export const BRAND_NAME = "Engineering Nexus";
@@ -5,41 +6,32 @@ export const BRAND_SUBTITLE = "Integrated Engineering Research Platform";
 
 export function BrandMark({ size = 42 }: { size?: number }) {
   return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 64 64"
-      fill="none"
-      role="img"
-      aria-label="Engineering Nexus"
-    >
-      <defs>
-        <linearGradient id="engineering-mark-cyan" x1="8" y1="8" x2="46" y2="55">
-          <stop stopColor="#76F0FA" />
-          <stop offset="1" stopColor="#35D8ED" />
-        </linearGradient>
-        <linearGradient id="engineering-mark-violet" x1="22" y1="54" x2="58" y2="10">
-          <stop stopColor="#35D8ED" />
-          <stop offset="1" stopColor="#7161ED" />
-        </linearGradient>
-      </defs>
-      <path d="M7 18h11l6 7m22-7h11l-6 7M7 46h11l6-7m22 7h11l-6-7" stroke="url(#engineering-mark-cyan)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-      <rect x="20" y="20" width="24" height="24" rx="5" stroke="url(#engineering-mark-violet)" strokeWidth="3.5" />
-      <path d="M25 34h4l2-5 3 8 2-4h3" stroke="#8EDFED" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
-      <circle cx="7" cy="18" r="3" fill="#35D8ED" /><circle cx="57" cy="18" r="3" fill="#7161ED" />
-      <circle cx="7" cy="46" r="3" fill="#35D8ED" /><circle cx="57" cy="46" r="3" fill="#7161ED" />
+    <svg width={size} height={size} viewBox="0 0 64 64" fill="none" role="img" aria-label="Engineering Nexus">
+      <g stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M7 18h11l6 7m22-7h11l-6 7M7 46h11l6-7m22 7h11l-6-7" opacity=".55" />
+        <rect x="20" y="20" width="24" height="24" rx="6" strokeWidth="3.5" />
+      </g>
+      <path d="M25 34h4l2-5 3 8 2-4h3" stroke="#007AFF" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
+      <g fill="currentColor" opacity=".55">
+        <circle cx="7" cy="18" r="3" /><circle cx="57" cy="18" r="3" />
+        <circle cx="7" cy="46" r="3" /><circle cx="57" cy="46" r="3" />
+      </g>
     </svg>
   );
 }
 
 export function BrandLockup({ compact = false }: { compact?: boolean }) {
+  const height = compact ? 18 : 28;
+  const width = Math.round((height * 824) / 185);
+  const size = { width, height, style: { height, width: "auto" } } as const;
   return (
-    <Link href="/" className={`healthtwin-brand ${compact ? "healthtwin-brand-compact" : ""}`}>
-      <BrandMark size={compact ? 38 : 54} />
-      <span className="healthtwin-brand-copy">
-        <span className="healthtwin-brand-name">Engineering <span>Nexus</span></span>
-        {!compact && <span className="healthtwin-brand-subtitle">{BRAND_SUBTITLE}</span>}
+    <Link href="/" className="nx-logo" aria-label={BRAND_NAME}>
+      <span className="nx-logo-row">
+        <span className="nx-eng" style={{ fontSize: Math.round(height * 1.35) }}>Engineering</span>
+        <Image className="nx-black" src="/brand/nexus-logo-black.png" alt="Nexus" priority {...size} />
+        <Image className="nx-white" src="/brand/nexus-logo-white.png" alt="" aria-hidden="true" priority {...size} />
       </span>
+      {!compact && <span className="healthtwin-brand-subtitle">{BRAND_SUBTITLE}</span>}
     </Link>
   );
 }

@@ -21,15 +21,15 @@ export default function NotificationCenter({ initialNotifications }: { initialNo
     if (!error) setNotifications((current) => current.map((item) => ({ ...item, read_at: item.read_at || new Date().toISOString() })));
   }
 
-  return <section className="research-panel mb-4 p-5" aria-label="Notifications">
+    return <section className="ax-panel" aria-label="Notifications">
     <div className="flex flex-wrap items-center justify-between gap-3">
-      <div><p className="research-section-title">Notifications</p>
-        <h2 className="mt-1 text-lg font-bold">Platform updates {unread > 0 && <span className="ml-2 rounded-full bg-cyan-400 px-2 py-0.5 text-xs text-slate-950">{unread}</span>}</h2></div>
-      {unread > 0 && <button type="button" onClick={markAllRead} className="text-sm font-semibold text-cyan-300">Mark all read</button>}
+      <div className="ax-panel-head"><small>Notifications</small>
+        <h2 style={{ fontSize: "1.125rem" }}>Platform updates {unread > 0 && <span className="ax-badge">{unread}</span>}</h2></div>
+      {unread > 0 && <button type="button" onClick={markAllRead} className="ax-link-btn">Mark all read</button>}
     </div>
-    <div className="mt-4 grid gap-3 md:grid-cols-2">{notifications.slice(0, 4).map((item) =>
-      <article key={item.id} className={`rounded-xl border p-4 ${item.read_at ? "border-white/10 bg-slate-950/30" : "border-cyan-400/30 bg-cyan-400/[0.07]"}`}>
-        <h3 className="font-semibold text-white">{item.title}</h3><p className="mt-1 text-sm leading-6 text-slate-300">{item.message}</p>
+    <div className="ax-notif-grid">{notifications.slice(0, 4).map((item) =>
+      <article key={item.id} className={`ax-notif${item.read_at ? "" : " is-unread"}`}>
+        <h3>{item.title}</h3><p>{item.message}</p>
       </article>)}</div>
   </section>;
 }

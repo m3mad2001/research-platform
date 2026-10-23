@@ -25,11 +25,11 @@ export default function PublicVisitCounter() {
 
   if (visits === null) return null;
 
-  return (
-    <div className="mt-6 rounded-2xl border border-cyan-400/20 bg-cyan-400/5 px-5 py-4 text-center">
-      <p className="text-sm text-slate-300">Platform visits</p>
-      <p className="mt-1 text-2xl font-bold text-cyan-300">{visits.toLocaleString("en-US")}</p>
-      {since && <p className="mt-1 text-xs text-slate-400">Since {new Date(since).toLocaleDateString("en-GB")}</p>}
+    return (
+    <div className="ax-visits">
+      <span>Platform visits</span>
+      <strong>{visits.toLocaleString("en-US")}</strong>
+      {since && <span>· since {new Date(since).toLocaleDateString("en-GB")}</span>}
     </div>
   );
 }

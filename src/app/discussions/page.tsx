@@ -18,7 +18,7 @@ export default async function DiscussionsPage({ searchParams }: {
   const { data: threads, error } = await query;
 
   return <>
-    <div className="flex flex-wrap items-end justify-between gap-5 rounded-3xl border border-cyan-400/20 bg-gradient-to-r from-[#123a59] to-[#071a2b] p-7 sm:p-10">
+    <div className="flex flex-wrap items-end justify-between gap-5 rounded-3xl border border-cyan-400/20 bg-[var(--card)] p-7 sm:p-10">
       <div><p className="research-section-title">People · ideas · answers</p>
         <h1 className="mt-2 text-3xl font-bold sm:text-4xl">Research Discussions</h1>
         <p className="mt-3 max-w-2xl text-slate-200">Ask a research question, follow the conversation, and learn from the Engineering Nexus community.</p>
